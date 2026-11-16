@@ -100,6 +100,7 @@ jobs:
         with:
           version: '6.8.0'
           arch: ${{ matrix.os == 'windows_msvc' && 'win64_msvc2022_64' || 'linux_gcc_64' }}
+          modules: 'qtcharts'
       
       - name: Configure CMake
         run: |
