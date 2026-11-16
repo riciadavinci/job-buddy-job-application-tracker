@@ -25,12 +25,16 @@ jobs:
             compiler: msvc
             build_type: Debug
             cmake_flags: ""
+            host: windows
+            arch: win64_msvc2022_64
           
           - name: "Windows MSVC (Release)"
             os: windows-latest
             compiler: msvc
             build_type: Release
             cmake_flags: ""
+            host: windows
+            arch: win64_msvc2022_64
           
           # --- Linux GCC (Standard & Sanitizers) --- #
           - name: "Linux GCC (Debug + Coverage)"
@@ -38,18 +42,24 @@ jobs:
             compiler: gcc
             build_type: Debug
             cmake_flags: '-DCMAKE_CXX_FLAGS="--coverage" -DCMAKE_EXE_LINKER_FLAGS="--coverage"'
+            host: linux
+            arch: linux_gcc_64
           
           - name: "Linux GCC (ASan + UBSan)"
             os: ubuntu-24.04
             compiler: gcc
             build_type: Debug
             cmake_flags: "-DJOB_BUDDY_USE_ASAN=ON"
+            host: linux
+            arch: linux_gcc_64
           
           - name: "Linux GCC (TSan)"
             os: ubuntu-24.04
             compiler: gcc
             build_type: Debug
             cmake_flags: "-DJOB_BUDDY_USE_TSAN=ON"
+            host: linux
+            arch: linux_gcc_64
           
           # --- Linux Clang, Clang-Tidy & Thread Sanitizer --- #
           - name: "Linux Clang (Debug + Clang-Tidy)"
@@ -57,12 +67,16 @@ jobs:
             compiler: clang
             build_type: Debug
             cmake_flags: "-DJOB_BUDDY_ENABLE_CLANG_TIDY=ON"
+            host: linux
+            arch: linux_gcc_64
 
           - name: "Linux Clang (TSan)"
             os: ubuntu-24.04
             compiler: clang
             build_type: Debug
             cmake_flags: "-DJOB_BUDDY_USE_TSAN=ON"
+            host: linux
+            arch: linux_gcc_64
     
     steps:
       - name: Checkout Repository
@@ -99,8 +113,8 @@ jobs:
         uses: jurplel/install-qt-action@v4
         with:
           version: '6.8.0'
-          host: ${{ matrix.os == ('windows_msvc' && 'windows') || 'linux' }}
-          arch: ${{ matrix.os == ('windows_msvc' && 'win64_msvc2022_64') || 'linux_gcc_64' }}
+          host: ${{ matrix.arch }}
+          arch: ${{ matrix.host }}
           modules: 'qtcharts'
       
       - name: Configure CMake
