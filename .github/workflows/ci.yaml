@@ -113,8 +113,8 @@ jobs:
         uses: jurplel/install-qt-action@v4
         with:
           version: '6.8.0'
-          host: ${{ matrix.arch }}
-          arch: ${{ matrix.host }}
+          host: ${{ matrix.host }}
+          arch: ${{ matrix.arch }}
           modules: 'qtcharts'
       
       - name: Configure CMake
