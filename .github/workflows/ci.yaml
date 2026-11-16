@@ -96,10 +96,11 @@ jobs:
             x64
       
       - name: Setup Qt 6
-        uses: jurplel/install-qt-action@v3
+        uses: jurplel/install-qt-action@v4
         with:
-          qt-version: '6.8.0'
-          arch: ${{ matrix.os == 'windows_msvc' && 'win64_msvc2019_64' || 'linux_gcc_64' }}
+          version: '6.8.0'
+          target: 'desktop'
+          arch: ${{ matrix.os == 'windows_msvc' && 'win64_msvc2022_64' || 'linux_gcc_64' }}
           modules: 'qtdeclarative'
       
       - name: Configure CMake
