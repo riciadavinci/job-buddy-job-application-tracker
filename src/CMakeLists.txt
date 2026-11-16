@@ -25,14 +25,14 @@ qt_add_executable(job_buddy
 target_include_directories(job_buddy PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/core
-    ${CMAKE_CURRENT_SOURCE_DIR}/ui
+    ${CMAKE_CURRENT_SOURCE_DIR}/qml
 )
 
 qt_add_resources(job_buddy "qml"
     PREFIX "/"
     FILES
-        ui/Main.qml
-        ui/Home.qml
+        qml/Main.qml
+        qml/Home.qml
 )
 
 
