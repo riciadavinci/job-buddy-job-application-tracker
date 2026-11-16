@@ -5,6 +5,7 @@
 **/deps/*
 **/venv/*
 **/__pycache__/*
+**/tests/Testing/*
 
 # Files:
 **/*.pyc

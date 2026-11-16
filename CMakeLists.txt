@@ -1,6 +1,6 @@
 cmake_minimum_required(VERSION 3.20)
 
-project(EnvDash LANGUAGES C CXX VERSION 0.0.1)
+project(job_buddy LANGUAGES C CXX VERSION 0.0.1)
 
 set(CMAKE_CXX_STANDARD 20)
 set(CMAKE_CXX_STANDARD_REQUIRED ON)
@@ -19,4 +19,10 @@ find_package(Qt6Quick REQUIRED)
 find_package(Qt6Charts REQUIRED)
 
 add_subdirectory(src)
-add_subdirectory(tests)
+
+option(JOB_BUDDY_BUILD_TESTS "Build unit tests for job-buddy" ON)
+
+if (JOB_BUDDY_BUILD_TESTS AND (CMAKE_PROJECT_NAME STREQUAL PROJECT_NAME))
+    include(CTest)
+    add_subdirectory(tests)
+endif()
