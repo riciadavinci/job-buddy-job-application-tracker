@@ -99,9 +99,7 @@ jobs:
         uses: jurplel/install-qt-action@v4
         with:
           version: '6.8.0'
-          target: 'desktop'
           arch: ${{ matrix.os == 'windows_msvc' && 'win64_msvc2022_64' || 'linux_gcc_64' }}
-          modules: 'qtdeclarative'
       
       - name: Configure CMake
         run: |
