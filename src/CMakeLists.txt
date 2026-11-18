@@ -25,6 +25,11 @@ qt_add_executable(job_buddy
 target_include_directories(job_buddy PRIVATE
     ${CMAKE_CURRENT_SOURCE_DIR}
     ${CMAKE_CURRENT_SOURCE_DIR}/core
+    ${CMAKE_CURRENT_SOURCE_DIR}/job_application
+    ${CMAKE_CURRENT_SOURCE_DIR}/company
+    ${CMAKE_CURRENT_SOURCE_DIR}/application_file
+    ${CMAKE_CURRENT_SOURCE_DIR}/tag
+    ${CMAKE_CURRENT_SOURCE_DIR}/action_log
     ${CMAKE_CURRENT_SOURCE_DIR}/qml
 )
 
