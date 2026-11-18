@@ -16,7 +16,11 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 FetchContent_MakeAvailable(googletest)
 
 add_executable(job_buddy_test_runner
-    test_main.cpp
+    core/types/test_response_types.cpp
+)
+
+target_include_directories(job_buddy_test_runner PRIVATE
+    ${CMAKE_CURRENT_SOURCE_DIR}/../src/core
 )
 
 target_link_libraries(job_buddy_test_runner PRIVATE GTest::gtest_main)
