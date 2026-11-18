@@ -1,6 +1,6 @@
 #pragma once
 
-namespace jobbyddy {
+namespace jobbuddy {
 
 enum class EntityType : int {
     Company = 0,
